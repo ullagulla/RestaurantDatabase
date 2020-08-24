@@ -6,11 +6,11 @@ const BookingSchema = new mongoose.Schema({
         required: true,
     },
     date: {
-        type: Date,
+        type: String,
         require: true,
     },
     time: {
-        type: Number,
+        type: String,
         require: true,
     },
     amountOfGuests: {
@@ -33,4 +33,6 @@ const BookingSchema = new mongoose.Schema({
     }
 })
 
-module.exports = mongoose.model('Booking', BookingSchema);
+const Booking = mongoose.model('Booking', BookingSchema);
+
+module.exports = Booking;
