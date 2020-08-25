@@ -4,15 +4,14 @@ const Booking = require('../models/booking')
 
 router.post("/", async (req, res) => {
 
-    const booking = new Booking({
-        id: 1,
-        date: "2020-08-23",
-        time: '18.00',
-        amountOfGuests: 6,
-        customerId: 2,
-        bookingActive: false,
-        bookingFinished: false,
-    })
+    // const booking = new Booking({
+        // date: req.body.date,
+        // time: req.body.time,
+        // amountOfGuests: req.body.amountOfGuests,
+        // customerId: req.body.customerId,
+        // bookingActive: req.body.bookingActive,
+        // bookingFinished: req.body.bookingFinished
+    // })
 
     console.log(booking)
 
