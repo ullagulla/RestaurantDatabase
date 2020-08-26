@@ -14,10 +14,10 @@ const BookingSchema = new mongoose.Schema({
         type: Number,
         require: true,
     },
-    customerId: {
-        type: Number,
-        require: true,
-    },
+    // customerId: {
+    //     type: Number,
+    //     require: true,
+    // },
     bookingActive: {
         type: Boolean,
         default: true,
