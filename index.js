@@ -4,6 +4,7 @@ const mongoose = require('mongoose')
 const app = express()
 const config = require('./config/config')
 const booking = require('./router/booking')
+const guest = require('./router/guest')
 const cors = require('cors')
 
 app.use(express.urlencoded({
@@ -12,7 +13,7 @@ app.use(express.urlencoded({
 app.use(bodyParser.json());
 
 app.use(cors())
-
+app.use(guest)
 app.use(booking)
 
 const port = process.env.PORT || 8000
