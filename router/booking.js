@@ -29,7 +29,7 @@ const Guest = require('../models/guest');
 
 router.get("/", async (req, res) => {
     const bookings = await Booking.find() 
-
+    res.send(bookings)
 })
 
 module.exports = router;
