@@ -4,45 +4,49 @@ const Booking = require('../models/booking');
 const Guest = require('../models/guest');
 
 router.post("/", async (req, res) => {
-    console.log("hej " + req.body)
-    await new Booking({
+
+    const booking = new Booking({
+        id: req.body.id,
         date: req.body.date,
         time: req.body.time,
         amountOfGuests: req.body.amountOfGuests,
-        // customerId: req.body._id,
+        customerId: req.body.customerId,
         bookingActive: req.body.bookingActive,
         bookingFinished: req.body.bookingFinished,
-       
+
     })
 
     const guests = new Guest({
-        numberOfGuests:req.body.numberOfGuests,
+        customerId: req.body.customerId,
         name: req.body.name,
         email: req.body.email,
         phone: req.body.phone,
     })
 
-     console.log("hej1",booking,"why",guests , "hej2")
+    // console.log("bokningen", booking, "gästen", guests, "DET FUNKAR WIIE")
 
-     await  guests.save((error, success) => {
-        if (error) {
-            res.send(error.message)
-    }
-     }),
-   
-   await booking.save((error, success) => {
-         if (error) {
-             res.send(error.message)
-        }
-    })
+    await guests.save((error, success) => {
+            if (error) {
+                res.send(error.message)
+            }
+        }),
 
-}) 
+        await booking.save((error, success) => {
+            if (error) {
+                res.send(error.message)
+            }
+        })
+        console.log(req.body.customerId)
+})
 
 router.get("/", async (req, res) => {
-    const bookings = await Booking.find() 
+    const bookings = await Booking.find()
     res.send(bookings)
 
-    const guest = await Guest.find() 
+})
+
+router.get("/api/v1/guests", async (req, res) => {
+    const guest = await Guest.find()
     res.send(guest)
 })
 

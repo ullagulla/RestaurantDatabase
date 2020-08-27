@@ -1,11 +1,11 @@
 const mongoose = require("mongoose");
 
 const GuestSchema = new mongoose.Schema({
-    numberOfGuests: {
-        type: Number,
+    name: {
+        type: String,
         require: true,
     },
-    name: {
+    customerId: {
         type: String,
         require: true,
     },
