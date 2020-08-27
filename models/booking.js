@@ -18,8 +18,8 @@ const BookingSchema = new mongoose.Schema({
         require: true,
     },
     customerId: {
-        type: Number,
-        require: true,
+        type: mongoose.Schema.Types.ObjectId,
+        ref: 'Guest',
     },
     bookingActive: {
         type: Boolean,

@@ -43,8 +43,8 @@ router.get("/", async (req, res) => {
     const bookings = await Booking.find() 
     res.send(bookings)
 
-    const Guest = await Guest.find() 
-    res.send(bookings)
+    const guest = await Guest.find() 
+    res.send(guest)
 })
 
 module.exports = router;
