@@ -13,22 +13,37 @@ const Guest = require('../models/guest');
         customerId: req.body.id,
         bookingActive: req.body.bookingActive,
         bookingFinished: req.body.bookingFinished,
+       
     })
 
-   
-     console.log(booking)
+    const guests = new Guest({
+        numberOfGuests:req.body.numberOfGuests,
+        name: req.body.name,
+        email: req.body.email,
+        phone: req.body.phone,
+    })
 
-    await booking.save((error, success) => {
+     console.log("hej1",booking,"why",guests , "hej2")
+
+     await  guests.save((error, success) => {
+        if (error) {
+            res.send(error.message)
+    }
+     }),
+   
+   await booking.save((error, success) => {
          if (error) {
              res.send(error.message)
         }
     })
 
-
- })
+}) 
 
 router.get("/", async (req, res) => {
     const bookings = await Booking.find() 
+    res.send(bookings)
+
+    const Guest = await Guest.find() 
     res.send(bookings)
 })
 
