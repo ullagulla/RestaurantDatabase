@@ -11,14 +11,39 @@ router.post("/", async (req, res) => {
         amountOfGuests: req.body.amountOfGuests,
         // customerId: req.body._id,
         bookingActive: req.body.bookingActive,
-        bookingFinished: req.body.bookingFinished
-    }).save()
-    res.send("Det funkade wiee")
-})
+        bookingFinished: req.body.bookingFinished,
+       
+    })
+
+    const guests = new Guest({
+        numberOfGuests:req.body.numberOfGuests,
+        name: req.body.name,
+        email: req.body.email,
+        phone: req.body.phone,
+    })
+
+     console.log("hej1",booking,"why",guests , "hej2")
+
+     await  guests.save((error, success) => {
+        if (error) {
+            res.send(error.message)
+    }
+     }),
+   
+   await booking.save((error, success) => {
+         if (error) {
+             res.send(error.message)
+        }
+    })
+
+}) 
 
 router.get("/", async (req, res) => {
     const bookings = await Booking.find() 
     res.send(bookings)
+
+    const guest = await Guest.find() 
+    res.send(guest)
 })
 
 module.exports = router;

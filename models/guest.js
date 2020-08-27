@@ -1,7 +1,7 @@
 const mongoose = require("mongoose");
 
 const GuestSchema = new mongoose.Schema({
-    customerId: {
+    numberOfGuests: {
         type: Number,
         require: true,
     },
@@ -9,11 +9,11 @@ const GuestSchema = new mongoose.Schema({
         type: String,
         require: true,
     },
-    emailAddress: {
+    email: {
         type: String,
         require: true,
     },
-    phoneNumber: {
+    phone: {
         type: Number,
         require: true,
     }
