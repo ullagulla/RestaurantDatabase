@@ -1,19 +1,19 @@
 const mongoose = require("mongoose");
 
 const GuestSchema = new mongoose.Schema({
-    customerId: {
-        type: Number,
-        require: true,
-    },
     name: {
         type: String,
         require: true,
     },
-    emailAddress: {
+    customerId: {
         type: String,
         require: true,
     },
-    phoneNumber: {
+    email: {
+        type: String,
+        require: true,
+    },
+    phone: {
         type: Number,
         require: true,
     }
