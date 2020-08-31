@@ -17,6 +17,10 @@ const BookingSchema = new mongoose.Schema({
         type: mongoose.Schema.Types.ObjectId,
         ref: 'Guest',
     },
+    bookingId: {
+        type:String,
+        require: true,
+    },
     bookingActive: {
         type: Boolean,
         default: true,
