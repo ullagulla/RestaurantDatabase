@@ -65,14 +65,14 @@ router.get("/admin/:id", async (req, res) => {
     res.send(oneBooking)
 })
 
-// router.delete("/admin/delete/:id", async (req, res) => {
+router.delete("/admin/delete/:id", async (req, res) => {
 
-//     const booking = await Booking.findByIdAndDelete({
-//         _id: req.body.bookings._id
-//     })
+    const booking = await Booking.deleteOne({
+        _id: req.params.id
+    })
 
-//     res.send("Det funkade" + booking);
+    res.send("Det funkade" + booking);
 
-// })
+})
 
 module.exports = router;
