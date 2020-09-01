@@ -57,13 +57,13 @@ router.get("/api/v1/guests", async (req, res) => {
     console.log(guest)
 })
 
-router.get("/admin/:id", async (req, res) => {
-    const oneBooking = await Booking.findOne({
-        _id: req.params.id
-    })
-    console.log("hej " + oneBooking)
-    res.send(oneBooking)
-})
+// router.get("/admin/:id", async (req, res) => {
+//     const oneBooking = await Booking.findOne({
+//         _id: req.params.id
+//     })
+//     console.log("hej " + oneBooking)
+//     res.send(oneBooking)
+// })
 
 router.delete("/admin/delete/:id", async (req, res) => {
 
