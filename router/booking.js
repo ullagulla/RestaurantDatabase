@@ -137,16 +137,16 @@ router.delete("/admin/delete/:id", async (req, res) => {
         Ring oss på 08-666666 om du har några frågor.`
       };
 
-    sendFrom.sendMail(mailContent, function (error, info) {
-        if (error) {
-          console.log(error);
-        } else {
-          console.log('Email sent (info.respsonse): ', info.response);
-        }
+    // sendFrom.sendMail(mailContent, function (error, info) {
+    //     if (error) {
+    //       console.log(error);
+    //     } else {
+    //       console.log('Email sent (info.respsonse): ', info.response);
+    //     }
       
-      });
+    //   });
 
-    res.send("Det funkade" + booking);
+    // res.send("Det funkade" + booking);
 
 })
 
