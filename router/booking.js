@@ -127,15 +127,15 @@ router.delete("/admin/delete/:id", async (req, res) => {
         _id: req.params.id
     })
 
-    let mailContent = {
-        from: "booking@purplenurples.se",
-        to: customer.email,
-        subject: "Avbokningsbekräftelse hos Purple Nurples",
-        text: `
-        Hej ${customer.name}. 
-        Din bokning den ${bookingInfo.date} för ${bookingInfo.amountOfGuests} personer, klockan ${bookingInfo.time} har avbokats.
-        Ring oss på 08-666666 om du har några frågor.`
-      };
+    // let mailContent = {
+    //     from: "booking@purplenurples.se",
+    //     to: customer.email,
+    //     subject: "Avbokningsbekräftelse hos Purple Nurples",
+    //     text: `
+    //     Hej ${customer.name}. 
+    //     Din bokning den ${bookingInfo.date} för ${bookingInfo.amountOfGuests} personer, klockan ${bookingInfo.time} har avbokats.
+    //     Ring oss på 08-666666 om du har några frågor.`
+    //   };
 
     // sendFrom.sendMail(mailContent, function (error, info) {
     //     if (error) {
