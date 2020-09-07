@@ -150,7 +150,20 @@ router.delete("/admin/delete/:id", async (req, res) => {
 
 })
 
+router.get("/oneGuest", async (req, res) => {
+    const bookingInfo = await Booking.findOne({
+        _id: req.params.id
+    })
+    const customer = await Guest.findOne({
+        _id: bookingInfo.customerId
+    })
+    if (bookingInfo.customerId === customer._id) {
+        res.send(customer)
+    }
+})
+
 router.put("/admin/update/:id", async (req, res) => {
+    console.log("reqqqq ", req.body.updateBookings)
     const bookingInfo = await Booking.findOne({
         _id: req.params.id
     })
@@ -158,10 +171,14 @@ router.put("/admin/update/:id", async (req, res) => {
         _id: bookingInfo.customerId
     })
     const updatedCustomer = await Booking.updateOne({_id:req.params.id}, 
-        {$set: {date: req.body.date, time: req.body.time, amountOfGuests: req.body.amountOfGuests, customerId: customer.customerId, _id: bookingInfo._id}})
+        {$set: {
+            date: req.body.updateBookings.date, 
+            time: req.body.updateBookings.time, 
+            amountOfGuests: req.body.updateBookings.amountOfGuests, 
+        }})
         console.log("Den uppdaterade kunden: ", updatedCustomer)
 
-        res.send(updatedCustomer)
+        res.send("det funkar")
 })
 
 module.exports = router;
