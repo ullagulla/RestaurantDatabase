@@ -13,7 +13,7 @@ let sendFrom = nodemailer.createTransport({
     }
   });
 
-router.post("/booking", async (req, res) => {
+router.post("/", async (req, res) => {
 
     const guest = await Guest.findOne({email: req.body.email})
 
@@ -107,7 +107,7 @@ router.get("/", async (req, res) => {
     console.log(bookings)
 })
 
-router.get("/api/v1/guests", async (req, res) => {
+router.get("/guests", async (req, res) => {
     const guest = await Guest.find()
     res.send(guest)
     console.log(guest)
@@ -148,6 +148,20 @@ router.delete("/admin/delete/:id", async (req, res) => {
 
     res.send("Det funkade" + booking);
 
+})
+
+router.put("/admin/update/:id", async (req, res) => {
+    const bookingInfo = await Booking.findOne({
+        _id: req.params.id
+    })
+    const customer = await Guest.findOne({
+        _id: bookingInfo.customerId
+    })
+    const updatedCustomer = await Booking.updateOne({_id:req.params.id}, 
+        {$set: {date: req.body.date, time: req.body.time, amountOfGuests: req.body.amountOfGuests, customerId: customer.customerId, _id: bookingInfo._id}})
+        console.log("Den uppdaterade kunden: ", updatedCustomer)
+
+        res.send(updatedCustomer)
 })
 
 module.exports = router;
