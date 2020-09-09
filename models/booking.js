@@ -20,16 +20,6 @@ const BookingSchema = new mongoose.Schema({
     bookingId: {
         type:String,
         require: true,
-    },
-    bookingActive: {
-        type: Boolean,
-        default: true,
-        require: true,
-    },
-    bookingFinished: {
-        type: Boolean,
-        default: false,
-        require: true,
     }
 })
 
