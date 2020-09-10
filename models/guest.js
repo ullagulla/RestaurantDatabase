@@ -13,6 +13,6 @@ const GuestSchema = new mongoose.Schema({
         type: Number,
         require: true,
     }
-})
+});
 
 module.exports = mongoose.model('Guest', GuestSchema);

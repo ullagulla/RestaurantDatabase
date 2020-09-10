@@ -21,7 +21,7 @@ const BookingSchema = new mongoose.Schema({
         type:String,
         require: true,
     }
-})
+});
 
 const Booking = mongoose.model('Booking', BookingSchema);
 
