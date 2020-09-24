@@ -14,7 +14,7 @@ app.use(bodyParser.json());
 app.use(cors());
 app.use(booking);
 
-const port = process.env.PORT || 8000
+const port = process.env.PORT || 8000;
 
 const options = {
     useUnifiedTopology: true,
